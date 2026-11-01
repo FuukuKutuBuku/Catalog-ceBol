@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Gochi+Hand&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +9,7 @@
 body {
     background-color: #0F1F11;
     font-family: "DM Sans",sans-serif;
+
 }
 
 .navbar {
@@ -78,3 +81,196 @@ button {
     FONT-WEIGHT: 700;
 
 }
+.hero {
+    min-height: calc(100vh - 76px);
+    padding: 100px 7vw;
+
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+
+    align-items: center;
+    gap: 40px;
+
+     background-color: #0F1F11;
+
+    background-image: radial-gradient(
+        rgba(255, 244, 228, 0.3) 1px,
+        transparent 1px
+    );
+
+    background-size: 25px 25px;
+}
+
+.text-alis{
+    color: yellow;
+    margin-bottom: 18px;
+    font-family: "DM Sans",sans-serif;
+    font-size: 12px;
+    letter-spacing: .16em;
+    font-weight: 700;
+}
+
+h1 {
+    font-family: "Gochi Hand", cursive;
+    font-size: clamp(40px, 5.2vw, 76px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    max-width: 850px;
+    color: #FFFFFF;
+    letter-spacing: 0.02em;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+}
+
+h1 .text-besar {
+    display: block;
+    font-size: clamp(26px, 3.2vw, 46px);
+    line-height: 1.15;
+    color: #FF85A1;
+    margin-top: 6px;
+    letter-spacing: 0.01em;
+}
+
+.hero-desc {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.6;
+    margin-bottom: 26px;
+    max-width: 480px;
+}
+
+.hero-price {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(52, 80, 63, 0.35);
+    border: 1px solid #34503f;
+    padding: 8px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: fit-content;
+}
+
+.hero-price strong {
+    color: #FFFF00;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.hero-price span:first-of-type {
+    color: #34503f;
+}
+
+.hero-button {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.button-kuning {
+    background: #FFFF00;
+    color: #0F1F11;
+    border: 1px solid #FFFF00;
+    padding: 12px 24px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.25s ease;
+}
+
+.button-kuning:hover {
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.button-putih {
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    padding: 12px 24px;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.25s ease;
+}
+
+.button-putih:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #FFFF00;
+    color: #FFFF00;
+    transform: translateY(-2px);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.lingkaran {
+    position: relative;
+    width: min(380px, 80vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(52, 80, 63, 0.45) 0%, rgba(15, 31, 17, 0.1) 70%);
+    border: 1px solid #34503f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.lingkaran img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+}
+
+.lingkaran .label {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: #FFFF00;
+    color: #0F1F11;
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 868px) {
+    .hero {
+        grid-template-columns: 1fr;
+        padding: 60px 5vw;
+        gap: 50px;
+        text-align: left;
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+
+    .lingkaran {
+        width: min(280px, 70vw);
+    }
+}
+
