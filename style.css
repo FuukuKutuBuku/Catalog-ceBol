@@ -83,7 +83,7 @@ button {
 }
 .hero {
     min-height: calc(100vh - 76px);
-    padding: 100px 7vw;
+    padding: 100px 300px;
 
     display: grid;
     grid-template-columns: 1.05fr .95fr;
@@ -98,7 +98,7 @@ button {
         transparent 1px
     );
 
-    background-size: 25px 25px;
+    background-size: 18px 18px;
 }
 
 .text-alis{
@@ -111,18 +111,21 @@ button {
 }
 
 h1 {
-    font-family: "Gochi Hand", cursive;
-    font-size: clamp(40px, 5.2vw, 76px);
+    font-family: ariel, helvetica, sans-serif;
+    font-size: clamp(4.25rem, 7.2vw, 7.35rem);
+    font-weight: 950;
     line-height: 1.08;
     margin-bottom: 20px;
     max-width: 850px;
     color: #FFFFFF;
-    letter-spacing: 0.02em;
+    letter-spacing: -0.068em;
+    line-height: 0,78;
     text-wrap: balance;
     overflow-wrap: break-word;
 }
 
 h1 .text-besar {
+    font-family: "Gochi Hand", cursive;
     display: block;
     font-size: clamp(26px, 3.2vw, 46px);
     line-height: 1.15;
@@ -217,60 +220,100 @@ h1 .text-besar {
 }
 
 .hero-visual {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
-.lingkaran {
+.hero-pict {
     position: relative;
     width: min(380px, 80vw);
-    aspect-ratio: 1;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(52, 80, 63, 0.45) 0%, rgba(15, 31, 17, 0.1) 70%);
-    border: 1px solid #34503f;
+
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 30px;
 }
 
-.lingkaran img {
-    width: 75%;
-    height: 75%;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
-}
-
-.lingkaran .label {
+.label {
     position: absolute;
+
     bottom: 24px;
     right: 24px;
+
+    z-index: 3;
+
     background: #FFFF00;
     color: #0F1F11;
+
     font-weight: 800;
     font-size: 12px;
     letter-spacing: 0.06em;
+
     padding: 6px 14px;
     border-radius: 999px;
+
     text-transform: uppercase;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 868px) {
-    .hero {
-        grid-template-columns: 1fr;
-        padding: 60px 5vw;
-        gap: 50px;
-        text-align: left;
-    }
+.hero-pict img {
+    width: 130%;
+    height: 130%;
+    object-fit: contain;
 
-    .hero-visual {
-        order: -1;
-    }
+    transform: perspective(1000px)
+               rotateY(-15deg)
+               rotateX(4deg)
+               rotateZ(3deg);
 
-    .lingkaran {
-        width: min(280px, 70vw);
-    }
+    filter: drop-shadow(
+        20px 25px 25px rgba(0, 0, 0, 0.4)
+    );
+
+    z-index: 2;
 }
+
+.lingkaran {
+    position: absolute;
+
+    width: clamp(500px, 65vw, 900px);
+    aspect-ratio: 1 / 1;
+
+    top: 82%;
+    left: 68%;
+
+    translate: -50% -50%;
+
+    z-index: 0;
+    pointer-events: none;
+}
+
+.lingkaran::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 100%;
+
+    border: 110px solid #FF2E8A;
+    border-top-color: yellow;
+
+       animation: rotateCircle 12s linear infinite;
+}
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
 
