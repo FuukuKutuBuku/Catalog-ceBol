@@ -82,7 +82,7 @@ button {
 
 }
 .hero {
-    min-height: calc(100vh - 76px);
+    min-height: calc(100vh - 150px);
     padding: 100px 300px;
 
     display: grid;
@@ -301,7 +301,7 @@ h1 .text-besar {
     border: 110px solid #FF2E8A;
     border-top-color: yellow;
 
-       animation: rotateCircle 12s linear infinite;
+       animation: rotateCircle 25s linear infinite;
 }
 
 @keyframes rotateCircle {
@@ -316,4 +316,44 @@ h1 .text-besar {
 
 }
 
+.marque {
+    overflow: hidden;
+    border-top: 1px solid #34503f;
+    border-bottom: 1px solid #34503f;
+    background: #031008;
+    padding: 25px 0;
+    width: 100%;
+}
 
+.marque-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 22s linear infinite;
+    will-change: transform;
+}
+
+.marque-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.marque-group span {
+    color: white;
+    font-family: ariel, helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 200;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 0 70px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
