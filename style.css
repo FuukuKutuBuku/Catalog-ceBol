@@ -357,3 +357,74 @@ h1 .text-besar {
         transform: translateX(-50%);
     }
 }
+
+.collection {
+    min-height: 100vh;
+    background-image: url('assets/bg-catalog.svg');
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 5vw;
+    overflow: hidden;
+}
+
+.catalog {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.looks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+
+    
+}
+
+.looks > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.looks img {
+    width: 100%;
+    max-width: 240px;
+    max-height: min(50vh, 360px);
+    object-fit: contain;
+    display: block;
+    
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+model-viewer {
+    width: 400%;
+    max-width: 460px;
+    height: 360px;
+    max-height: min(50vh, 360px);
+    display: block;
+    --poster-color: transparent;
+    outline: none;
+}
+
+
+
