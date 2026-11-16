@@ -88,58 +88,68 @@
     </div>
 
     <section class="collection" id="collection">
-        
-        
-        <div class="catalog">
+        <div class="collection-characters">
+            <div class="collection-header">
+                <span class="collection-tag">Meet</span>
+                <h2 class="collection-title">ALL STYLE</h2>
+            </div>
 
-            <div class="looks">
+            <div class="characters-grid">
+                <div class="character-item item-polos">
+                    <div class="character-img-wrap">
+                        <img src="assets/cebol-polos.png" alt="ceBol Polos" loading="lazy">
+                    </div>
+                    <p class="character-name">ceBol Polos</p>
+                </div>
 
-                <article class="polos">
-                    <div class="polos-img">
-                        <img src="assets/cebol-polos.png" alt="Looks">
+                <div class="character-item item-sekolah">
+                    <div class="character-img-wrap">
+                        <img src="assets/cebol-sekolah.png" alt="ceBol Sekolah" loading="lazy">
                     </div>
-                    <div class="polos-desc">
-                        <h2>ceBol Polos</h2>
-                        <p>Simple, relaxed and effortlessly honest</p>
-                    </div>
-                </article>
+                    <p class="character-name">ceBol Sekolah</p>
+                </div>
 
-                <article class="sekolah">
-                    <div class="sekolah-img">
-                        <img src="assets/cebol-sekolah.png" alt="Looks">
+                <div class="character-item item-pkl" data-alias="ceBol PXL">
+                    <div class="character-img-wrap">
+                        <img src="assets/cebol-pkl.png" alt="ceBol PKL" loading="lazy">
                     </div>
-                    <div class="sekolah-desc">
-                        <h2>ceBol Sekolah</h2>
-                        <p>Curious, dilligent and ready to learn</p>
-                    </div>
-                </article>
+                    <p class="character-name">ceBol PKL</p>
+                </div>
 
-                <article class="pkl">
-                    <div class="pkl-img">
-                        <img src="assets/cebol-pkl.png" alt="Looks">
+                <div class="character-item item-gaul" data-alias="ceBol Bali">
+                    <div class="character-img-wrap">
+                        <img src="assets/cebol-gaul.png" alt="ceBol Gaul" loading="lazy">
                     </div>
-                    <div class="pkl-desc">
-                        <h2>ceBol PKL</h2>
-                        <p>Always learning through real-world practice</p>
-                    </div>
-                </article>
+                    <p class="character-name">ceBol Gaul</p>
+                </div>
 
-                <article class="gaul">
-                    <div class="gaul-img">
-                        <img src="assets/cebol-gaul.png" alt="Looks">
+                <div class="character-item item-secret">
+                    <div class="character-img-wrap">
+                        <img src="assets/cebol-secret.png" alt="Secret" loading="lazy">
                     </div>
-                    <div class="gaul-desc">
-                        <h2>ceBol Gaul</h2>
-                        <p>Friendly, sociable and always in the know</p>
-                    </div>
-                </article>
+                    <p class="character-name">Secret</p>
+                </div>
+            </div>
+        </div>
 
-            </div> 
-
-            <div class="box">
-                    <model-viewer src="assets/box-cebol.glb" alt="Cebol Box" auto-rotate camera-controls ar ar-modes="webxr scene-viewer quick-look">
+        <div class="collection-showcase">
+            <div class="box-showcase-inner">
+                <div class="box-display">
+                    <model-viewer 
+                        src="assets/box-cebol.glb" 
+                        alt="ceBol 3D Box" 
+                        auto-rotate 
+                        camera-controls 
+                        touch-action="pan-y" 
+                        shadow-intensity="1"
+                        ar 
+                        ar-modes="webxr scene-viewer quick-look">
                     </model-viewer>
                 </div>
+                <div class="box-badge" aria-label="Box Design Badge">
+                    <span>BOX DESIGN</span>
+                </div>
+            </div>
         </div>
     </section>
 </body>

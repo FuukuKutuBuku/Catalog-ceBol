@@ -125,7 +125,7 @@ h1 {
 }
 
 h1 .text-besar {
-    font-family: "Gochi Hand", cursive;
+    font-family: "gochi hand";
     display: block;
     font-size: clamp(26px, 3.2vw, 46px);
     line-height: 1.15;
@@ -360,70 +360,327 @@ h1 .text-besar {
 
 .collection {
     min-height: 100vh;
-    background-image: url('assets/bg-catalog.svg');
     background-color: #FFFFFF;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 5vw;
-    overflow: hidden;
-}
-
-.catalog {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
     width: 100%;
-    max-width: 1800px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
+    overflow-x: clip;
+    padding-bottom: 40px;
 }
 
-.looks {
+.collection-characters {
+    flex: 0 0 55%;
+    width: 55%;
+    max-width: 55%;
+    background-color: #FFFFFF;
+    padding: 70px 4vw 80px 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.collection-header {
+    margin-bottom: 36px;
+}
+
+.collection-tag {
+    display: inline-block;
+    font-family: "DM Sans", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #FF4F9A;
+    border-bottom: 2.5px solid #FF4F9A;
+    padding-bottom: 2px;
+    line-height: 1.2;
+}
+
+.collection-title {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 950;
+    color: #0F1F11;
+    letter-spacing: -0.068em;
+    line-height: 1.08;
+    margin-top: 12px;
+    text-transform: uppercase;
+}
+
+/* Character grid: 3 on top row, 2 centered underneath */
+.characters-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 36px;
+    column-gap: 16px;
     width: 100%;
-    align-items: center;
-    justify-items: center;
-
-    
+    max-width: 620px;
 }
 
-.looks > div {
+.character-item {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    width: 100%;
-    
+    justify-content: flex-end;
+    text-align: center;
 }
 
-.looks img {
+.item-polos {
+    grid-column: 1 / span 2;
+}
+
+.item-sekolah {
+    grid-column: 3 / span 2;
+}
+
+.item-pkl {
+    grid-column: 5 / span 2;
+}
+
+.item-gaul {
+    grid-column: 2 / span 2;
+}
+
+.item-secret {
+    grid-column: 4 / span 2;
+}
+
+.character-img-wrap {
     width: 100%;
-    max-width: 240px;
-    max-height: min(50vh, 360px);
+    height: clamp(140px, 15vw, 190px);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.character-img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
     display: block;
-    
+    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.04));
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.box {
+.character-item:hover img {
+    transform: translateY(-5px) scale(1.03);
+}
+
+.character-name {
+    font-family: "Gochi Hand", cursive;
+    color: #FF4F9A;
+    font-size: clamp(16px, 1.25vw, 19px);
+    margin-top: 10px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* =========================================================
+   Right Column: Box Design Showcase (~45% width)
+   ========================================================= */
+.collection-showcase {
+    flex: 0 0 45%;
+    width: 45%;
+    max-width: 45%;
+    background-color: #FF4F9A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 720px;
+    padding: 60px 40px 110px 40px;
+    box-sizing: border-box;
+    /* Irregular decorative jagged cutout along bottom edge */
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% calc(100% - 22px),
+        92.1% 100%,
+        90.8% calc(100% - 38px),
+        89.4% 100%,
+        77.6% calc(100% - 6px),
+        75.7% calc(100% - 32px),
+        75.2% calc(100% - 7px),
+        72.6% calc(100% - 8px),
+        72.2% calc(100% - 38px),
+        70.8% calc(100% - 9px),
+        69.3% calc(100% - 85px),
+        67.3% calc(100% - 13px),
+        48.8% calc(100% - 18px),
+        48.5% calc(100% - 33px),
+        47.5% calc(100% - 17px),
+        21.1% calc(100% - 20px),
+        20.9% calc(100% - 29px),
+        20.5% calc(100% - 21px),
+        19.9% calc(100% - 60px),
+        18.5% calc(100% - 21px),
+        9.6% calc(100% - 29px),
+        9.1% calc(100% - 23px),
+        8.1% calc(100% - 23px),
+        7.8% calc(100% - 39px),
+        6.8% calc(100% - 25px),
+        0% calc(100% - 23px)
+    );
+}
+
+.box-showcase-inner {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+    max-width: 440px;
+    margin-top: -30px;
 }
 
-model-viewer {
-    width: 400%;
-    max-width: 460px;
-    height: 360px;
-    max-height: min(50vh, 360px);
-    display: block;
+.box-display {
+    width: min(340px, 80%);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    padding: 24px;
+    position: relative;
+}
+
+.box-display model-viewer {
+    width: 100%;
+    height: 100%;
     --poster-color: transparent;
     outline: none;
+    display: block;
+}
+
+/* Floating yellow badge */
+.box-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -24px;
+    width: 96px;
+    height: 96px;
+    background-color: #FFDE00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
+    transform: rotate(-6deg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    cursor: default;
+    z-index: 5;
+    user-select: none;
+}
+
+.box-badge:hover {
+    transform: rotate(0deg) scale(1.06);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.box-badge span {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 13px;
+    line-height: 1.15;
+    color: #0F1F11;
+    text-align: center;
+    max-width: 65px;
+    letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   Responsive Breakpoints
+   ========================================================= */
+@media (max-width: 1024px) {
+    .collection {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .collection-characters {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 60px 6vw 50px 6vw;
+    }
+
+    .characters-grid {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .collection-showcase {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        min-height: 520px;
+        padding: 70px 30px 100px 30px;
+    }
+
+    .box-showcase-inner {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .collection-characters {
+        padding: 50px 5vw 40px 5vw;
+    }
+
+    .collection-title {
+        font-size: 2.2rem;
+    }
+
+    .characters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px 14px;
+    }
+
+    .item-polos {
+        grid-column: auto;
+    }
+
+    .item-sekolah {
+        grid-column: auto;
+    }
+
+    .item-pkl {
+        grid-column: auto;
+    }
+
+    .item-gaul {
+        grid-column: auto;
+    }
+
+    .item-secret {
+        grid-column: 1 / span 2;
+        max-width: 50%;
+        justify-self: center;
+    }
+
+    .character-img-wrap {
+        height: 150px;
+    }
+
+    .box-display {
+        width: 270px;
+        padding: 16px;
+    }
+
+    .box-badge {
+        width: 82px;
+        height: 82px;
+        bottom: -16px;
+        right: -16px;
+    }
+
+    .box-badge span {
+        font-size: 11px;
+        max-width: 55px;
+    }
 }
 
 
