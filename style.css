@@ -110,7 +110,7 @@ button {
     font-weight: 700;
 }
 
-h1 {
+.hero h1 {
     font-family: ariel, helvetica, sans-serif;
     font-size: clamp(4.25rem, 7.2vw, 7.35rem);
     font-weight: 950;
@@ -241,7 +241,7 @@ h1 .text-besar {
     position: absolute;
 
     bottom: 24px;
-    right: 24px;
+    right: 0.2px;
 
     z-index: 3;
 
@@ -359,329 +359,160 @@ h1 .text-besar {
 }
 
 .collection {
-    min-height: 100vh;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: space-between;
-    width: 100%;
-    position: relative;
-    overflow-x: clip;
-    padding-bottom: 40px;
+    padding: 100px 5vw;
+    background-color: #ffffff;
 }
 
-.collection-characters {
-    flex: 0 0 55%;
-    width: 55%;
-    max-width: 55%;
-    background-color: #FFFFFF;
-    padding: 70px 4vw 80px 6vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    z-index: 2;
-}
-
-.collection-header {
-    margin-bottom: 36px;
-}
-
-.collection-tag {
-    display: inline-block;
-    font-family: "DM Sans", sans-serif;
-    font-size: 19px;
-    font-weight: 700;
-    color: #FF4F9A;
-    border-bottom: 2.5px solid #FF4F9A;
-    padding-bottom: 2px;
-    line-height: 1.2;
-}
-
-.collection-title {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(2.4rem, 4vw, 3.8rem);
-    font-weight: 950;
-    color: #0F1F11;
-    letter-spacing: -0.068em;
-    line-height: 1.08;
-    margin-top: 12px;
-    text-transform: uppercase;
-}
-
-/* Character grid: 3 on top row, 2 centered underneath */
-.characters-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 36px;
-    column-gap: 16px;
-    width: 100%;
-    max-width: 620px;
-}
-
-.character-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+.clt-tag {
     text-align: center;
+    margin-bottom: 3rem;
 }
 
-.item-polos {
-    grid-column: 1 / span 2;
+.clt-tag h1 {
+    color: #0F1F11;
+    font-size: 1.5rem;
+    font-weight: 950;
+    letter-spacing: -0.02em;
 }
 
-.item-sekolah {
-    grid-column: 3 / span 2;
-}
-
-.item-pkl {
-    grid-column: 5 / span 2;
-}
-
-.item-gaul {
-    grid-column: 2 / span 2;
-}
-
-.item-secret {
-    grid-column: 4 / span 2;
-}
-
-.character-img-wrap {
-    width: 100%;
-    height: clamp(140px, 15vw, 190px);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.character-img-wrap img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    display: block;
-    filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.04));
-    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.character-item:hover img {
-    transform: translateY(-5px) scale(1.03);
-}
-
-.character-name {
-    font-family: "Gochi Hand", cursive;
-    color: #FF4F9A;
-    font-size: clamp(16px, 1.25vw, 19px);
-    margin-top: 10px;
-    letter-spacing: 0.02em;
-    white-space: nowrap;
-}
-
-/* =========================================================
-   Right Column: Box Design Showcase (~45% width)
-   ========================================================= */
-.collection-showcase {
-    flex: 0 0 45%;
-    width: 45%;
-    max-width: 45%;
-    background-color: #FF4F9A;
+.tema-satu {
     display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    min-height: 720px;
-    padding: 60px 40px 110px 40px;
-    box-sizing: border-box;
-    /* Irregular decorative jagged cutout along bottom edge */
-    clip-path: polygon(
-        0% 0%,
-        100% 0%,
-        100% calc(100% - 22px),
-        92.1% 100%,
-        90.8% calc(100% - 38px),
-        89.4% 100%,
-        77.6% calc(100% - 6px),
-        75.7% calc(100% - 32px),
-        75.2% calc(100% - 7px),
-        72.6% calc(100% - 8px),
-        72.2% calc(100% - 38px),
-        70.8% calc(100% - 9px),
-        69.3% calc(100% - 85px),
-        67.3% calc(100% - 13px),
-        48.8% calc(100% - 18px),
-        48.5% calc(100% - 33px),
-        47.5% calc(100% - 17px),
-        21.1% calc(100% - 20px),
-        20.9% calc(100% - 29px),
-        20.5% calc(100% - 21px),
-        19.9% calc(100% - 60px),
-        18.5% calc(100% - 21px),
-        9.6% calc(100% - 29px),
-        9.1% calc(100% - 23px),
-        8.1% calc(100% - 23px),
-        7.8% calc(100% - 39px),
-        6.8% calc(100% - 25px),
-        0% calc(100% - 23px)
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 3rem 11vw;
+    margin-left: -5vw;
+    margin-right: -5vw;
+    margin-bottom: 4rem;
+    background: linear-gradient(
+        180deg,
+        #edf1ee 0%,
+        #f5f7f5 40%,
+        #ffffff 100%
     );
 }
 
-.box-showcase-inner {
-    position: relative;
+.tema-satu-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.tema-satu-img {
+    flex-shrink: 0;
+    width: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.tema-satu-img img {
     width: 100%;
-    max-width: 440px;
-    margin-top: -30px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(4px 8px 16px rgba(0, 0, 0, 0.1));
 }
 
-.box-display {
-    width: min(340px, 80%);
-    aspect-ratio: 1 / 1;
+.tema-satu h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #0F1F11;
+    margin-bottom: 1rem;
+}
+
+.tema-satu p {
+    max-width: 950px;
+    color: #5a7a65;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+.clt-catalog {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin-left: 6vw;
+}
+
+.clt-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    text-align: left;
+    box-shadow: none;
+}
+
+.clt-img {
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    height: 290px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 4px;
-    padding: 24px;
-    position: relative;
+    padding: 20px;
+    margin-bottom: 14px;
 }
 
-.box-display model-viewer {
+.clt-img img {
     width: 100%;
     height: 100%;
-    --poster-color: transparent;
-    outline: none;
-    display: block;
+    max-width: 180px;
+    max-height: 230px;
+    object-fit: contain;
 }
 
-/* Floating yellow badge */
-.box-badge {
-    position: absolute;
-    bottom: -24px;
-    right: -24px;
-    width: 96px;
-    height: 96px;
-    background-color: #FFDE00;
-    border-radius: 50%;
+.clt-desc {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
-    transform: rotate(-6deg);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    cursor: default;
-    z-index: 5;
-    user-select: none;
+    flex-direction: column;
+    font-family: "DM Sans", Arial, sans-serif;
 }
 
-.box-badge:hover {
-    transform: rotate(0deg) scale(1.06);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+.sub-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #767676;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 5px;
 }
 
-.box-badge span {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 900;
+.clt-desc p {
     font-size: 13px;
-    line-height: 1.15;
+    font-weight: 500;
+    color: #111111;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+.harga {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111111;
+}
+
+.clt-order {
+    margin-top: 14px;
+}
+
+.clt-order button {
+    width: 100%;
+    padding: 10px 0;
+    background: #0F1F11;
+    color: #ffffff;
+    border: 1px solid #0F1F11;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.clt-order button:hover {
+    background: #ffffff;
     color: #0F1F11;
-    text-align: center;
-    max-width: 65px;
-    letter-spacing: 0.02em;
 }
-
-/* =========================================================
-   Responsive Breakpoints
-   ========================================================= */
-@media (max-width: 1024px) {
-    .collection {
-        flex-direction: column;
-        min-height: auto;
-    }
-
-    .collection-characters {
-        flex: 0 0 100%;
-        width: 100%;
-        max-width: 100%;
-        padding: 60px 6vw 50px 6vw;
-    }
-
-    .characters-grid {
-        max-width: 600px;
-        margin: 0 auto;
-    }
-
-    .collection-showcase {
-        flex: 0 0 100%;
-        width: 100%;
-        max-width: 100%;
-        min-height: 520px;
-        padding: 70px 30px 100px 30px;
-    }
-
-    .box-showcase-inner {
-        margin-top: 0;
-    }
-}
-
-@media (max-width: 640px) {
-    .collection-characters {
-        padding: 50px 5vw 40px 5vw;
-    }
-
-    .collection-title {
-        font-size: 2.2rem;
-    }
-
-    .characters-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 26px 14px;
-    }
-
-    .item-polos {
-        grid-column: auto;
-    }
-
-    .item-sekolah {
-        grid-column: auto;
-    }
-
-    .item-pkl {
-        grid-column: auto;
-    }
-
-    .item-gaul {
-        grid-column: auto;
-    }
-
-    .item-secret {
-        grid-column: 1 / span 2;
-        max-width: 50%;
-        justify-self: center;
-    }
-
-    .character-img-wrap {
-        height: 150px;
-    }
-
-    .box-display {
-        width: 270px;
-        padding: 16px;
-    }
-
-    .box-badge {
-        width: 82px;
-        height: 82px;
-        bottom: -16px;
-        right: -16px;
-    }
-
-    .box-badge span {
-        font-size: 11px;
-        max-width: 55px;
-    }
-}
-
-
-
