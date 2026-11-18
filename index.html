@@ -17,11 +17,11 @@
         <nav>
             <button>HOME</button>
             <button>COLLECTION</button>
-            <button>HOW TO ORDER</button>
+            <button>ABOUT</button>
         </nav>
 
         <div class="order">
-            <button>VIEW CART</button>
+            <button class="cart-trigger" id="open-cart-btn">VIEW CART <span class="cart-badge" style="display: none;">0</span></button>
         </div>
     </header>
 
@@ -43,11 +43,11 @@
             </div>
 
             <div class = "hero-button">
-                <button class = "button-kuning">
+                <button class = "button-kuning" onclick="document.querySelector('.collection')?.scrollIntoView({behavior: 'smooth'})">
                     VIEW COLLECTION
                     ⭣
                 </button>
-                <button class = "button-putih">
+                <button class = "button-putih cart-trigger">
                     VIEW CART
                     ↗
                 </button>
@@ -106,7 +106,7 @@
 
         <div class="clt-catalog">
 
-            <div class="clt-card">
+            <div class="clt-card" data-id="cebol-polos" data-name="ceBol Polos" data-category="ACRYLIC KEYCHAIN" data-price="20000" data-img="assets/cebol-polos.png">
                 <div class="clt-img">
                     <img src="assets/cebol-polos.png" alt="ceBol Polos">
                 </div>
@@ -120,7 +120,7 @@
                 </div>
             </div>
 
-            <div class="clt-card">
+            <div class="clt-card" data-id="cebol-sekolah" data-name="ceBol Sekolah" data-category="ACRYLIC KEYCHAIN" data-price="20000" data-img="assets/cebol-sekolah.png">
                 <div class="clt-img">
                     <img src="assets/cebol-sekolah.png" alt="ceBol Sekolah">
                 </div>
@@ -134,7 +134,7 @@
                 </div>
             </div>
 
-            <div class="clt-card">
+            <div class="clt-card" data-id="cebol-pkl" data-name="ceBol PKL" data-category="ACRYLIC KEYCHAIN" data-price="20000" data-img="assets/cebol-pkl.png">
                 <div class="clt-img">
                     <img src="assets/cebol-pkl.png" alt="ceBol PKL">
                 </div>
@@ -148,7 +148,7 @@
                 </div>
             </div>
 
-            <div class="clt-card">
+            <div class="clt-card" data-id="cebol-gaul" data-name="ceBol Gaul" data-category="ACRYLIC KEYCHAIN" data-price="20000" data-img="assets/cebol-gaul.png">
                 <div class="clt-img">
                     <img src="assets/cebol-gaul.png" alt="ceBol Gaul">
                 </div>
@@ -165,5 +165,33 @@
         </div>
 
     </section>
+
+    <!-- Shopping Cart Overlay -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+
+    <!-- Shopping Cart Drawer -->
+    <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+        <div class="cart-header">
+            <div class="cart-header-title">
+                <span>SHOPPING CART</span>
+                <span class="cart-header-count" id="cart-count-header">(0)</span>
+            </div>
+            <button id="cart-close" class="cart-close-btn" aria-label="Close cart">&times;</button>
+        </div>
+
+        <div class="cart-body" id="cart-items">
+            <!-- Items rendered dynamically by script.js -->
+        </div>
+
+        <div class="cart-footer">
+            <div class="cart-subtotal">
+                <span>Subtotal</span>
+                <strong id="cart-total-price">Rp 0</strong>
+            </div>
+            <button class="cart-checkout-btn" id="cart-checkout-btn">CHECKOUT</button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
 </body>
 </html>
