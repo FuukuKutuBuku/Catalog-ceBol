@@ -884,3 +884,182 @@ body.cart-open {
     color: #0F1F11;
 }
 
+/* ==========================================================================
+   About & Contact Section (Compact Dark Forest Green Theme)
+   ========================================================================== */
+.about-section {
+    background-color: #0F1F11;
+    background-size: 18px 18px;
+    color: #FFFFFF;
+    padding: 36px 5vw 20px;
+    border-top: 1px solid #34503f;
+    font-family: "DM Sans", Arial, sans-serif;
+    position: relative;
+    z-index: 10;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;
+    flex-wrap: wrap;
+}
+
+.about-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex: 1 1 480px;
+    min-width: 280px;
+}
+
+.about-logo {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    padding: 8px;
+    width: 80px;
+    height: 80px;
+}
+
+.about-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.about-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.about-title {
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #FFFF00;
+    text-transform: uppercase;
+}
+
+.about-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 400;
+    max-width: 520px;
+}
+
+.about-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 0 1 auto;
+}
+
+.contact-heading {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #FFFF00;
+}
+
+.contact-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.contact-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    border: 1px solid #34503f;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.contact-pill:hover {
+    background: #FFFF00;
+    color: #0F1F11;
+    border-color: #FFFF00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(255, 255, 0, 0.2);
+}
+
+.contact-icon {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.about-footer-bottom {
+    max-width: 1200px;
+    margin: 22px auto 0;
+    padding-top: 14px;
+    border-top: 1px solid #34503f;
+    text-align: center;
+}
+
+.about-footer-bottom p {
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        padding: 28px 5vw 18px;
+    }
+
+    .about-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .about-brand {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
+    }
+
+    .about-logo {
+        width: 50px;
+        height: 50px;
+        padding: 6px;
+    }
+
+    .about-contact {
+        width: 100%;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .contact-pill {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+

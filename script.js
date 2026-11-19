@@ -1,11 +1,14 @@
 /**
  * Shopping Cart System for ceBol Website
  * Implements full cart functionality with localStorage persistence,
- * quantity controls (+/-), item removal, and real-time updates.
+ * quantity controls (+/-), item removal, real-time updates,
+ * and direct WhatsApp checkout with auto-generated order message.
  */
 
 (function () {
     'use strict';
+
+    const ADMIN_PHONE = '6285964348734';
 
     // Cart State
     let cart = [];
@@ -94,6 +97,41 @@
             overlay.classList.remove('active');
             document.body.classList.remove('cart-open');
         }
+    }
+
+    // Checkout via WhatsApp
+    function checkoutWhatsApp() {
+        if (cart.length === 0) {
+            alert('Keranjang belanja Anda masih kosong! Silakan pilih produk terlebih dahulu.');
+            return;
+        }
+
+        let totalQuantity = 0;
+        let totalPrice = 0;
+        let itemsList = '';
+
+        cart.forEach((item, index) => {
+            const itemSubtotal = item.price * item.quantity;
+            totalQuantity += item.quantity;
+            totalPrice += itemSubtotal;
+            itemsList += `${index + 1}. *${item.name}* (${item.category})\n   • Jumlah: ${item.quantity} pcs\n   • Subtotal: ${formatRupiah(itemSubtotal)}\n\n`;
+        });
+
+        const message = 
+`Saya ingin memesan produk dari website ceBol:
+
+*Detail Pesanan:*
+${itemsList}────────────────────────
+*Total Item:* ${totalQuantity} pcs
+*Total Pembayaran:* ${formatRupiah(totalPrice)}
+────────────────────────
+
+Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayarannya ya min. Terima kasih!`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const waUrl = `https://wa.me/${ADMIN_PHONE}?text=${encodedMessage}`;
+
+        window.open(waUrl, '_blank');
     }
 
     // Render Cart Interface
@@ -259,20 +297,10 @@
             }
         });
 
-        // Checkout button
+        // Checkout via WhatsApp Button
         const checkoutBtn = document.getElementById('cart-checkout-btn');
         if (checkoutBtn) {
-            checkoutBtn.addEventListener('click', () => {
-                if (cart.length === 0) {
-                    alert('Your cart is empty! Please add items before checking out.');
-                    return;
-                }
-                const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-                alert(`Thank you for your order! Total payment: ${formatRupiah(total)}\n\nOrder submitted successfully.`);
-                cart = [];
-                saveCart();
-                closeCart();
-            });
+            checkoutBtn.addEventListener('click', checkoutWhatsApp);
         }
     }
 
