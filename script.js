@@ -1,30 +1,28 @@
-/**
- * Shopping Cart System for ceBol Website
- * Implements full cart functionality with localStorage persistence,
- * quantity controls (+/-), item removal, real-time updates,
- * and direct WhatsApp checkout with auto-generated order message.
- */
-
 (function () {
     'use strict';
 
     const ADMIN_PHONE = '6285964348734';
 
-    // Cart State
+
     let cart = [];
 
-    // Load cart from localStorage
     function loadCart() {
         try {
             const savedCart = localStorage.getItem('cebol_cart');
             cart = savedCart ? JSON.parse(savedCart) : [];
+           
+            cart.forEach(item => {
+                if (item.category === 'ACRYLIC KEYCHAIN') {
+                    item.category = '5x3cm ACRYLIC KEYCHAIN';
+                }
+            });
         } catch (e) {
             console.error('Error loading cart from localStorage', e);
             cart = [];
         }
     }
 
-    // Save cart to localStorage and re-render
+  
     function saveCart() {
         try {
             localStorage.setItem('cebol_cart', JSON.stringify(cart));
@@ -34,12 +32,12 @@
         renderCart();
     }
 
-    // Format number to Rupiah string (e.g. 20000 -> Rp 20.000)
+
     function formatRupiah(number) {
         return 'Rp ' + Number(number).toLocaleString('id-ID');
     }
 
-    // Add item to cart
+
     function addToCart(product) {
         const existingItem = cart.find(item => item.id === product.id);
         if (existingItem) {
@@ -48,7 +46,7 @@
             cart.push({
                 id: product.id,
                 name: product.name,
-                category: product.category || 'ACRYLIC KEYCHAIN',
+                category: product.category || '5x3cm ACRYLIC KEYCHAIN',
                 price: Number(product.price) || 20000,
                 img: product.img || 'assets/box-depan.png',
                 quantity: 1
@@ -58,7 +56,7 @@
         openCart();
     }
 
-    // Update item quantity
+
     function updateQuantity(id, delta) {
         const item = cart.find(item => item.id === id);
         if (!item) return;
@@ -71,7 +69,6 @@
         saveCart();
     }
 
-    // Remove item completely from cart
     function removeFromCart(id) {
         cart = cart.filter(item => item.id !== id);
         saveCart();
@@ -88,7 +85,7 @@
         }
     }
 
-    // Close Cart Drawer
+
     function closeCart() {
         const drawer = document.getElementById('cart-drawer');
         const overlay = document.getElementById('cart-overlay');
@@ -99,7 +96,7 @@
         }
     }
 
-    // Checkout via WhatsApp
+  
     function checkoutWhatsApp() {
         if (cart.length === 0) {
             alert('Keranjang belanja Anda masih kosong! Silakan pilih produk terlebih dahulu.');
@@ -134,14 +131,13 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
         window.open(waUrl, '_blank');
     }
 
-    // Render Cart Interface
     function renderCart() {
         const cartItemsContainer = document.getElementById('cart-items');
         const cartTotalPriceEl = document.getElementById('cart-total-price');
         const cartCountHeaderEl = document.getElementById('cart-count-header');
         const cartBadges = document.querySelectorAll('.cart-badge');
 
-        // Calculate total quantity & total price
+    
         let totalQuantity = 0;
         let totalPrice = 0;
 
@@ -150,23 +146,23 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
             totalPrice += item.price * item.quantity;
         });
 
-        // Update badges across the website
+ 
         cartBadges.forEach(badge => {
             badge.textContent = totalQuantity;
             badge.style.display = totalQuantity > 0 ? 'inline-flex' : 'none';
         });
 
-        // Update header count
+  
         if (cartCountHeaderEl) {
             cartCountHeaderEl.textContent = `(${totalQuantity})`;
         }
 
-        // Update total price
+
         if (cartTotalPriceEl) {
             cartTotalPriceEl.textContent = formatRupiah(totalPrice);
         }
 
-        // Render items or empty state
+    
         if (!cartItemsContainer) return;
 
         if (cart.length === 0) {
@@ -221,12 +217,12 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
         cartItemsContainer.innerHTML = html;
     }
 
-    // Initialize Event Listeners
+  
     function init() {
         loadCart();
         renderCart();
 
-        // Cart Drawer Triggers
+   
         document.querySelectorAll('.cart-trigger').forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -234,26 +230,26 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
             });
         });
 
-        // Close button
+
         const closeBtn = document.getElementById('cart-close');
         if (closeBtn) {
             closeBtn.addEventListener('click', closeCart);
         }
 
-        // Overlay click
+  
         const overlay = document.getElementById('cart-overlay');
         if (overlay) {
             overlay.addEventListener('click', closeCart);
         }
 
-        // Escape key to close
+  
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeCart();
             }
         });
 
-        // Event delegation for cart item actions (Plus, Minus, Remove)
+
         const cartItemsContainer = document.getElementById('cart-items');
         if (cartItemsContainer) {
             cartItemsContainer.addEventListener('click', (e) => {
@@ -273,7 +269,7 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
             });
         }
 
-        // "Add To Cart" buttons on product cards
+   
         document.querySelectorAll('.clt-card').forEach(card => {
             const addBtn = card.querySelector('.clt-order button');
             if (addBtn) {
@@ -282,7 +278,7 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
 
                     const id = card.dataset.id || card.querySelector('.clt-desc p')?.textContent.trim().toLowerCase().replace(/\s+/g, '-') || 'cebol-item';
                     const name = card.dataset.name || card.querySelector('.clt-desc p')?.textContent.trim() || 'ceBol Character';
-                    const category = card.dataset.category || card.querySelector('.sub-label')?.textContent.trim() || 'ACRYLIC KEYCHAIN';
+                    const category = card.dataset.category || card.querySelector('.sub-label')?.textContent.trim() || '5x3cm ACRYLIC KEYCHAIN';
                     const priceRaw = card.dataset.price || 20000;
                     const img = card.dataset.img || card.querySelector('.clt-img img')?.getAttribute('src') || 'assets/box-depan.png';
 
@@ -297,14 +293,13 @@ Mohon konfirmasi ketersediaan stok dan info nomor rekening / QRIS untuk pembayar
             }
         });
 
-        // Checkout via WhatsApp Button
         const checkoutBtn = document.getElementById('cart-checkout-btn');
         if (checkoutBtn) {
             checkoutBtn.addEventListener('click', checkoutWhatsApp);
         }
     }
 
-    // Run when DOM is ready
+  
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {

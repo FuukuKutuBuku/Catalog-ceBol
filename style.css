@@ -518,11 +518,7 @@ h1 .text-besar {
     border-color: #FFFF00;
 }
 
-/* ==========================================================================
-   Shopping Cart System (README Guidelines: #0F1F11, #34503f, #FFFF00, DM Sans)
-   ========================================================================== */
 
-/* Cart Overlay */
 .cart-overlay {
     position: fixed;
     inset: 0;
@@ -540,7 +536,7 @@ h1 .text-besar {
     visibility: visible;
 }
 
-/* Cart Drawer */
+
 .cart-drawer {
     position: fixed;
     top: 0;
@@ -566,7 +562,7 @@ body.cart-open {
     overflow: hidden;
 }
 
-/* Cart Header */
+
 .cart-header {
     display: flex;
     justify-content: space-between;
@@ -634,7 +630,7 @@ body.cart-open {
     border-radius: 3px;
 }
 
-/* Cart Empty State */
+
 .cart-empty {
     display: flex;
     flex-direction: column;
@@ -813,7 +809,7 @@ body.cart-open {
     color: #FF85A1;
 }
 
-/* Cart Footer */
+
 .cart-footer {
     padding: 20px 24px;
     border-top: 1px solid #34503f;
@@ -861,7 +857,6 @@ body.cart-open {
     transform: translateY(-2px);
 }
 
-/* Cart Badge */
 .cart-badge {
     display: inline-flex;
     align-items: center;
@@ -884,9 +879,6 @@ body.cart-open {
     color: #0F1F11;
 }
 
-/* ==========================================================================
-   About & Contact Section (Compact Dark Forest Green Theme)
-   ========================================================================== */
 .about-section {
     background-color: #0F1F11;
     background-size: 18px 18px;
